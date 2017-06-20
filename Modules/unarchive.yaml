@@ -1,0 +1,9 @@
+--- # Unarchive
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Fetch the file
+      unarchive: src=/home/schalla/archive.tar.gz dest=/home/schalla/ copy=yes

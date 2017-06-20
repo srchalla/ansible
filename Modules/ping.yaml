@@ -1,0 +1,11 @@
+--- # Ping Module
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: ping all server in the redhat group
+      ping:
+      register: result
+    - debug: var=result

@@ -1,0 +1,12 @@
+--- # 
+- hosts: apacheweb 
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: ping app server before we run our install
+      command: ping -c 4 srinathrchalla2 > /home/test/ping.out
+      delegate_to: 127.0.0.1
+    - name: Install Lynx on Remote server
+      yum: pkg=lynx state=latest

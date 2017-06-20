@@ -1,0 +1,9 @@
+--- # RAW Module
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Find the system update for the hosts in redhat group
+      raw: /usr/bin/uptime > uptime.log

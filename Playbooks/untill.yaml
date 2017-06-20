@@ -1,0 +1,17 @@
+--- # UNTILL Example
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install Apache Web Server
+      yum: pkg=httpd state=latest
+    - name: Verify Service Status
+      shell: systemctl status httpd
+      register: result
+      until: result.stdout.find("active (running)") != -1
+      retries: 5
+      delay: 5
+    - debug: var=result
+

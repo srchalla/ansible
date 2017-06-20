@@ -1,0 +1,14 @@
+--- # Web Playbook
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  vars_files:
+    - variables/variables.yaml
+  tasks:
+    - include: packages/packages.yaml
+    - include: commands/commands.yaml
+  handlers:
+    - include: handlers/handlers.yaml
+

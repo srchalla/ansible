@@ -1,0 +1,14 @@
+--- 
+# Run Once: In some cases there may be a need to only run a task one time and only on one host (first host in the inventory). This can be achieved by configuring “run_once” on a task. 
+
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Run the uptime command on all hosts and log it
+      raw: /usr/bin/uptime >> /home/schalla/uptime.log
+    - name: List the /var dir and log it
+      raw: /usr/bin/ls -la /var >> /home/schalla/dir.list
+      run_once: true

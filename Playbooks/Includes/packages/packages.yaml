@@ -1,0 +1,6 @@
+- name: Install the Apache web server
+  yum: pkg=httpd state=latest
+  notify: Restart HTTPD
+- name: Install the Lynx Web Browser
+  yum: pkg=lynx state=latest
+

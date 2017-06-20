@@ -1,0 +1,9 @@
+--- # APT MODULE EXAMPLE
+- hosts: debian
+  become: yes 
+  remote_user: schalla
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Install Apache Web Server
+    apt: name=apache2 state=present update_cache=yes

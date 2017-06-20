@@ -1,0 +1,13 @@
+--- # Testing J2 Template
+- hosts: apacheweb:debian
+  connection: ssh
+  user: schalla
+  become: yes
+  gather_facts: yes
+  vars:
+    userName: schalla
+    userPassword: Cricket1
+    connectionType: SFTP
+  tasks:
+    - name: Install the configuration file customized for the system
+      template: src=test.conf.j2 dest=/home/schalla/test.conf owner=schalla group=schalla mode=750

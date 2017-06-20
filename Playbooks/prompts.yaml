@@ -1,0 +1,14 @@
+--- # Prompts for the user package example
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  vars_prompt:
+    - name: package
+      prompt: What Package you want to install?
+      default: telnet
+      private: no
+  tasks:
+    - name: Installing {{ package }}
+      yum: pkg={{ package }} state=latest

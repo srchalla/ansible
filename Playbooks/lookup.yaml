@@ -1,0 +1,8 @@
+--- # Sample File
+- hosts: redhat 
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - debug: msg="{{ lookup('env', 'HOSTNAME') }} is the value listed"

@@ -1,0 +1,9 @@
+--- # 
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Add asagili user
+      user: name=asagili comment="asagili user" shell=/bin/bash groups=wheel append=yes

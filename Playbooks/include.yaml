@@ -1,0 +1,10 @@
+--- # Sample File
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - include: plays/packages.yaml
+    - name: Verify the telnet package is installed
+      raw: yum list installed | grep telnet > /home/schalla/telnet.log

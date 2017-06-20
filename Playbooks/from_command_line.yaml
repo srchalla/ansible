@@ -1,0 +1,12 @@
+--- 
+# Passing Variables from the command line.
+# Command: ansible-playbook from_command_line.yaml --extra-vars "hosts=redhat user=schalla pkg=telnet"
+- hosts: '{{ hosts }}'
+  remote_user: '{{ user }}'
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: install some software
+      yum: pkg={{ pkg }} state=latest
+    

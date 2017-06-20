@@ -1,0 +1,9 @@
+--- # CRON MODULE EXAMPLE
+- hosts: apacheweb
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Add a CRON Job to the schalla User
+      cron: name="list dirs" minute="0" hour="1" job="ls -al /var/log > /home/schalla/cron.log"

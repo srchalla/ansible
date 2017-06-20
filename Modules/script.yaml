@@ -1,0 +1,9 @@
+--- # SCRIPT Module 
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Copying local script file to remote machine and executing the script
+      script: /home/schalla/system_uptime.sh creates=/home/test/uptime.log

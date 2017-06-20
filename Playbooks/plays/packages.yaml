@@ -1,0 +1,4 @@
+- name: install the telnet client
+  yum: pkg=telnet state=latest
+- name: install lynx web browser
+  yum: pkg=lynx state=latest

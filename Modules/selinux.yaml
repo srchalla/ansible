@@ -1,0 +1,9 @@
+--- # 
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Change SELinux COnfiguraion to Permissive
+      selinux: policy=targeted state=permissive

@@ -1,0 +1,9 @@
+--- # FILESYSTEM Module
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Format the remote data parition
+      filesystem: fstype=ext4 dev=/dev/xvdf1

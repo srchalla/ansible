@@ -1,0 +1,18 @@
+---
+# WHEN statements
+- hosts: all
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  vars:
+    playbook_type: conditionalexample
+  vars_files:
+    - conf/copyrights.yaml
+    - conf/webdefaults.yaml
+  tasks:
+    - name: Install Apache WebServer on Debian servers
+      command: apt-get -y install apache2
+      when: ansible_os_family == 'Debian'
+    - name: Install HTTPD Webserver on Redhat Server
+      command: yum -y install httpd
+      when: ansible_os_family == 'RedHat'

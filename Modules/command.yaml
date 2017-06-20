@@ -1,0 +1,11 @@
+--- # 
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Executing below command
+      command: /home/schalla/test.sh
+      #args:
+      #  chdir: /home/schalla/

@@ -1,0 +1,9 @@
+--- # FETCH 
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: yes 
+  tasks:
+    - name: Copy remote hosts file to control server
+      fetch: src=/etc/hosts dest=/home/schalla/prefix-{{ ansible_hostname }} flat=yes

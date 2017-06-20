@@ -1,0 +1,26 @@
+--- # Async and Poll. 
+- hosts: redhat 
+  user: schalla
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  vars:
+    playbook_version: 0.1a
+  vars_files:
+    - conf/webdefaults.yaml
+    - conf/copyrights.yaml
+  
+  vars_prompt:
+    - name: pkg_name
+      prompt: What's the package name you want to install?
+  tasks:
+    - name: Install Apache web Server
+      action: yum name=httpd state=latest
+      notify: Restart HTTPD
+    - name: Install Lynx Web Browser
+      action: yum name={{ pkg_lynx }} state=installed
+    - name: Installing {{ pkg_name }}
+      action: yum name={{ pkg_name }} state=installed
+  handlers:
+    - name: Restart HTTPD
+      action: service name=httpd state=started

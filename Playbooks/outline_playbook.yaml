@@ -1,0 +1,38 @@
+--- # Outline of Playbook
+- hosts: apacheweb
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Start Time of this Process
+      raw: /usr/bin/date > /home/schalla/outline_playbook_starttime.log
+
+    # Install Apache WebServer and restart the service
+
+    - name: Install Apache Web Server
+      yum: pkg=httpd state=latest
+ 
+    - name: Start Apache Service
+      service: name=httpd state=restarted
+
+    - name: Verify Service is Running?
+      raw: systemctl status httpd
+      register: result
+
+    - debug: var=result
+     
+    # Install Telnet and Lynx browser
+
+    - name: Install Telnet client software
+      yum: pkg=telnet state=latest
+
+    - name: Install LYNX Software
+      yum: pkg=lynx state=latest
+
+    - name: Log all the packages install on the system
+      raw: yum list installed > /home/schalla/installed.log
+
+    - name: End Time of the playbook run
+      raw: /usr/bin/date > /home/schalla/outline_playbook_endtime.log
+  

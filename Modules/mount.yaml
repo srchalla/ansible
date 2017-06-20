@@ -1,0 +1,11 @@
+--- # Mount Module
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Create the mount point
+      file: path=/mnt/data state=directory
+    - name: mount the remote data partitions
+      mount: name=/mnt/data src=/dev/xvdf1 fstype=ext4 opts=rw state=mounted
