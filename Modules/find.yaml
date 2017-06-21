@@ -1,0 +1,11 @@
+--- # 
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Simple find on fstab file
+      find: paths="/etc" patterns="fstab" recurse=yes
+      register: result
+    - debug: var=result

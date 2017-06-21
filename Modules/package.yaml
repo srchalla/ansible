@@ -1,0 +1,9 @@
+--- # 
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install Telenet using package module
+      package: name=telent state=latest
