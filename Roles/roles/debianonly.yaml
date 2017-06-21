@@ -7,8 +7,7 @@
   - name: Role execution start time
     raw: date > /home/schalla/role_start_time.log
   roles:
-    - { role: redhat_webservers, when: "ansible_os_family == 'RedHat' " }
-    - { role: debian_webservers, when: "ansible_os_family == 'Debian' " }
+    - debian_webservers
   post_tasks: 
   - name: Role END time
     raw: date > /home/schalla/role_end_time.log

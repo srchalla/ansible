@@ -1,0 +1,16 @@
+- name: Install Apache web server (Redhat/CentOS)
+  yum: pkg={{ redhat_apache }} state=latest
+  when: "ansible_os_family == 'RedHat'"
+- shell: systemctl status httpd
+  register: result
+  until: result.stdout.find("active (running)") != -1
+  retries: 5
+  delay: 5
+- debug: var=result
+  # WAIT_FOR Functionality
+  #- name: Wait for the server to start listening on port 80
+  #wait_for:
+  #  port: 80
+  #  state: started
+  #notify: Restart HTTPD
+
