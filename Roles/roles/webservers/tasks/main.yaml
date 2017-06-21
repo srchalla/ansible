@@ -1,0 +1,3 @@
+- name: Install Apache web server
+  yum: name=httpd state=installed
+  notify: Restart HTTPD

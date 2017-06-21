@@ -1,0 +1,7 @@
+--- # Master Playbook for Web Servers
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  roles:
+    - webservers
