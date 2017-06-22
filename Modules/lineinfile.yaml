@@ -1,0 +1,37 @@
+--- # 
+- hosts: redhat
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: Change SELinux state to disabled 
+      lineinfile:
+        path: /etc/selinux/config
+        regexp: '^SELINUX='
+        line: 'SELINUX=disabled'
+    - name: Remove %wheel line from sudoers file
+      lineinfile:
+        path: /etc/sudoers
+        regexp: '^%wheel'
+        state: absent 
+    - name: Add %wheel line to sudoers file
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        line: '%wheel  ALL=(ALL)       ALL' 
+    - name: Add line before
+      lineinfile:
+        path: /etc/services
+        regexp: '^# port for http'
+        insertbefore: '^www.*80/tcp'
+        line: '# port for http by default'
+    - name: Create file if it doesnt exist
+      file:
+        state: touch 
+        path: /home/schalla/hostname.conf
+    - name: if line not there add it
+      lineinfile:
+        state: present
+        path: /home/schalla/hostname.conf
+        line: Hostname={{ ansible_hostname }}

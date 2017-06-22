@@ -6,6 +6,7 @@
   gather_facts: no
   tasks:
     - name: Executing below command
-      command: /home/schalla/test.sh
+      command: /usr/sbin/setenforce 0
+      #command: /home/schalla/test.sh
       #args:
       #  chdir: /home/schalla/
