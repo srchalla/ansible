@@ -1,4 +1,4 @@
---- # tags
+--- # tags. Run it as  # ansible-playbook tags.yaml --tags packages
 - hosts: redhat
   remote_user: schalla
   become: yes

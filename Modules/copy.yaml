@@ -6,4 +6,9 @@
   gather_facts: no
   tasks:
     - name: Copying file from this server to destination server location
-      copy: src=files/test1 dest=/home/schalla/test1 owner=schalla group=schalla mode=700
+      copy: 
+        src: files/test1 
+        dest: /home/schalla/test1 
+        owner: schalla 
+        group: schalla 
+        mode: 700

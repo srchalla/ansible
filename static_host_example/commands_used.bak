@@ -1,0 +1,82 @@
+ 147  mkdir static_host_examples
+  148  cd static_host_examples/
+  149  vim myhosts
+  150  cat myhosts
+  151  vim test-playbook
+  152  vim test-playbook.yaml
+  153  ansibly-playbook test-playbook.yaml
+  154  ansible-playbook -i myhosts test-playbook.yaml
+  155  vim myhosts
+  156  ansible-playbook -i myhosts test-playbook.yaml
+  157  ping 54.191.57.138
+  158  ansible -m ping 54.191.57.138
+  159  ansible 54.191.57.138 -m ping
+  160  cat /etc/hosts
+  161  vim /etc/hosts
+  162  sudo vim /etc/hosts
+  163  ansible-playbook -i myhosts test-playbook.yaml
+  164  ls
+  165  vim myhosts
+  166  vim test-playbook.
+  167  vim test-playbook.yaml
+  168  ansible-playbook test-playbook.yaml
+  169  cat /etc/ansible/hosts
+  170  vim test-playbook.yaml
+  171  ansible-playbook test-playbook.yaml
+  172  cat myhosts
+  173  vim myhosts
+  174  ansible-playbook -i myhosts test-playbook.
+  175  ansible-playbook -i myhosts test-playbook.yaml
+  176  ls
+  177  rm test-playbook.retry
+  178  ansible-playbook -i myhosts test-playbook.yaml
+  179  ansible -i myhosts -a "ls -l /var/log/messages"
+  180  ansible -i myhosts -b -a "ls -l /var/log/messages"
+  181  ansible database -i myhosts -b -a "ls -l /var/log/messages"
+  182  ansible database -i myhosts -b -a "ls -l /etc"
+  183  ansible otehr -i myhosts -b -a "ls -l /etc"
+  184  ansible other -i myhosts -b -a "ls -l /etc"
+  185  ansible other -i myhosts -b -a "hostname"
+  186  vim myhosts
+  187  ansible others -b -a " {{ log_dir }} "
+  188  cat myhosts
+  189  ansible other -i myhosts -b -a " {{ log_dir }} "
+  190  ansible other -i myhosts -b -a "ls -l {{ log_dir }}"
+  191  vim myhosts
+  192  ansible other -i myhosts -b -a "ls -l {{ log_dir }}"
+  193  ansible -i myhosts other -b -m file -a "path={{ log_dir }} state=present"
+  194  ansible -i myhosts other -b -m file -a "path={{ log_dir }} state=directory"
+  195  ansible -i myhosts other -b -m file -a "path={{ log_dir }} state=directory owner=schalla group=schalla"
+  196  vim myhosts
+  197  mkdir host_vars
+  198  vim host_vars/srinathrchalla3.mylabserver.com.yaml
+  199  ansible -i myhosts other -b -m file -a "path={{ log_dir }} state=absent owner=schalla group=schalla"
+  200  ansible -i myhosts other -b -m file -a "path={{ log_dir }} state=directory owner=schalla group=schalla"
+  201  vim host_vars/srinathrchalla3.mylabserver.com.yaml
+  202  ansible -i myhosts other -b -m file -a "path={{ log_dir }} state=absent owner=schalla group=schalla"
+  203  vim host_vars/srinathrchalla3.mylabserver.com.yaml
+  204  ansible -i myhosts other -b -m file -a "path={{ log_dir }} state=absent owner=schalla group=schalla"
+  205  mkdir group_vars
+  206  mkdir group_vars/databases
+  207  vim group_vars/databases/log_settings
+  208  vim group_vars/databases/log_settings.yaml
+  209  vim host_vars/srinathrchalla3.mylabserver.com.yaml
+  210  cat /etc/ansible/hosts
+  211  ls
+  212  cat myhosts
+  213  mv myhosts.ini
+  214  mv myhosts myhosts.ini
+  215  clear
+  216  ls
+  217  cat myhosts.ini
+  218  vim myhosts.ini
+  219  vim host_vars/srinathrchalla3.mylabserver.com.yaml
+  220  ansible -i myhosts.ini databases -m file -a "path={{ log_dir }} state=directory"
+  221  ansible -i myhosts.ini databases -b -m file -a "path={{ log_dir }} state=directory"
+  222  vim group_vars/databases/log_settings.yaml
+  223  ansible -i myhosts.ini databases -b -m file -a "path={{ log_dir }} state=absent"
+  224  vim group_vars/databases/log_settings.yaml
+  225  ansible -i myhosts.ini databases -b -m file -a "path={{ log_dir }} state=absent"
+  226  ansible -i myhosts.ini databases -b -m file -a "path={{ log_dir }} state=present"
+  227  ansible -i myhosts.ini databases -b -m file -a "path={{ log_dir }} state=directory"
+

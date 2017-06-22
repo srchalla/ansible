@@ -1,0 +1,41 @@
+---
+# WHEN statements
+- hosts: redhat 
+  remote_user: schalla
+  become: yes
+  connection: ssh
+  vars:
+    create_file: true
+    playbook_type: conditionalexample
+  vars_files:
+    - conf/copyrights.yaml
+    - conf/webdefaults.yaml
+  tasks:
+
+    - name: Install Apache WebServer on Debian servers
+      command: apt-get -y install apache2
+      when: ansible_os_family == 'Debian'
+
+    - name: Install HTTPD Webserver on Redhat Server
+      command: yum -y install httpd
+      when: ansible_os_family == 'RedHat'
+
+    - name: create file when create_file is true
+      command: touch /home/schalla/create_file
+      #when: not create_file
+      when: create_file
+    
+    - name: Create multiple files "{{ item }}"
+      command: touch /home/schalla/{{ item }}
+      with_items:
+        - file1
+        - file2
+        - file3
+
+    - name: Remove multiple files "{{ item }}"
+      file: path=/home/schalla/{{ item }} state=absent
+      with_items:
+        - file1
+        - file2
+        - file3
+

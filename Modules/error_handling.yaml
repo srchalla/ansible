@@ -1,0 +1,23 @@
+--- # 
+- hosts: redhat
+  remote_user: schalla
+  become: yes 
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install mysql server
+      yum: name=mysqld-server state=latest
+      ignore_errors: yes
+      register: mysql
+    - name: start mysql if there
+      service: name=mysqld state=started
+      register: running
+      ignore_errors: yes
+    - name: copy file to server
+      copy: src=test.sh dest=/home/schalla/test.sh mode=0755
+    - name: Run the script 
+      command: /home/schalla/test.sh
+      register: result
+      ignore_errors: yes
+    - debug: msg={{ result.stdout }}
+    - debug: msg={{ result.stderr }}

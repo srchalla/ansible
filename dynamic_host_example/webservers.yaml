@@ -1,0 +1,12 @@
+--- # Install Apache webserver
+- hosts: all
+  become: yes
+  remote_user: schalla
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install HTTPD WebServer
+      yum: pkg=httpd state=latest
+    - name: Start the HTTPD WebServer
+      service: name=httpd state=restarted
+
