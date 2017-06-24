@@ -1,5 +1,5 @@
 --- # Ping Module
-- hosts: redhat
+- hosts: all
   remote_user: schalla
   become: yes
   connection: ssh
