@@ -10,7 +10,7 @@ Candidates should have the following skills and abilities to pass the Ansible Ce
 
 ## Understand core components of Ansible
 * [ Inventories ](http://docs.ansible.com/ansible/intro_inventory.html)
-* [ Modules ](http://docs.ansible.com/ansible/modules.html
+* [ Modules ](http://docs.ansible.com/ansible/modules.html)
 * [ Variables ](http://docs.ansible.com/ansible/playbooks_variables.html#variables)
 * [ Facts ](http://docs.ansible.com/ansible/setup_module.html#setup)
 * [ Plays ](https://docs.ansible.com/ansible/playbooks.html)
@@ -33,7 +33,8 @@ Candidates should have the following skills and abilities to pass the Ansible Ce
 ## Create and use templates to create customized configuration files
 * [Playbook Templating](https://docs.ansible.com/ansible/playbooks_templating.html)
 ## Work with Ansible variables and facts 
-(http://docs.ansible.com/ansible/playbooks_variables.html)
+* [Variables](http://docs.ansible.com/ansible/playbooks_variables.html)
+* [Facts (setup)](http://docs.ansible.com/ansible/setup_module.html)
 ## Create and work with roles 
 * [Roles](http://docs.ansible.com/ansible/playbooks_roles.html)
 ## Download roles from an Ansible Galaxy and use them 
