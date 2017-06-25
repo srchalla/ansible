@@ -1,7 +1,7 @@
 ##
 # Red Hat Certificate of Expertise in Ansible Automation exam (EX407) - 2017
 Candidates should have the following skills and abilities to pass the Ansible Certification (EX407). This is not likely a complete list. Please visit below official Ansible RedHat certification page for current information. Also, provided below some intro links that will help fill the gaps in basic understanding of what Ansible is?
-[Study points for the exam] (https://www.redhat.com/en/services/training/ex407-red-hat-certificate-expertise-ansible-automation)
+[Study points for the exam](https://www.redhat.com/en/services/training/ex407-red-hat-certificate-expertise-ansible-automation)
 
 ## Intro: What is Ansible?  
 * [What is Ansible?: Quick Start Video] (https://www.ansible.com/quick-start-video)
